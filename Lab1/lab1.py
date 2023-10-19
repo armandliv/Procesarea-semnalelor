@@ -28,11 +28,13 @@ while t <= 0.03:
     yy += [x(t)]
     t+=0.0005
 plt.stem(xx,yy)
+plt.savefig("1b1.pdf", format="pdf")
 plt.show()
 
 plt.xlabel("t")
 plt.ylabel("x(t)")
 plt.plot(xx,yy)
+plt.savefig("1b2.pdf", format="pdf")
 plt.show()
 
 t = 0
@@ -45,11 +47,13 @@ while t <= 0.03:
 plt.xlabel("t")
 plt.ylabel("y(t)")
 plt.stem(xx,yy)
+plt.savefig("1b3.pdf", format="pdf")
 plt.show()
 
 plt.xlabel("t")
 plt.ylabel("y(t)")
 plt.plot(xx,yy)
+plt.savefig("1b4.pdf", format="pdf")
 plt.show()
 
 
@@ -63,11 +67,13 @@ while t <= 0.03:
 plt.xlabel("t")
 plt.ylabel("z(t)")
 plt.stem(xx,yy)
+plt.savefig("1b5.pdf", format="pdf")
 plt.show()
 
 plt.xlabel("t")
 plt.ylabel("z(t)")
 plt.plot(xx,yy)
+plt.savefig("1b6.pdf", format="pdf")
 plt.show()
 
 
@@ -82,11 +88,13 @@ while t <= 0.03:
 plt.xlabel("t")
 plt.ylabel("x(t)")
 plt.stem(xx,yy)
+plt.savefig("1c1.pdf", format="pdf")
 plt.show()
 
 plt.xlabel("t")
 plt.ylabel("x(t)")
 plt.plot(xx,yy)
+plt.savefig("1c2.pdf", format="pdf")
 plt.show()
 
 t = 0
@@ -99,11 +107,13 @@ while t <= 0.03:
 plt.xlabel("t")
 plt.ylabel("y(t)")
 plt.stem(xx,yy)
+plt.savefig("1c3.pdf", format="pdf")
 plt.show()
 
 plt.xlabel("t")
 plt.ylabel("y(t)")
 plt.plot(xx,yy)
+plt.savefig("1c4.pdf", format="pdf")
 plt.show()
 
 t = 0
@@ -116,11 +126,13 @@ while t <= 0.03:
     plt.xlabel("t")
     plt.ylabel("z(t)")
 plt.stem(xx,yy)
+plt.savefig("1c5.pdf", format="pdf")
 plt.show()
 
 plt.xlabel("t")
 plt.ylabel("z(t)")
 plt.plot(xx,yy)
+plt.savefig("1c6.pdf", format="pdf")
 plt.show()
 
 xx2=xx
@@ -137,6 +149,7 @@ plt.xlabel("t")
 plt.ylabel("z(t)")
 plt.plot(xx,yy)
 plt.stem(xx2,yy2)
+plt.savefig("1c7.pdf", format="pdf")
 plt.show()
 
 plt.xlabel("t")
@@ -146,6 +159,7 @@ t = 0
 while t <= 0.03:
     plt.scatter(t,z(t))
     t+=0.006
+plt.savefig("1c8.pdf", format="pdf")
 plt.show()
 
 #%% ex2
@@ -167,6 +181,7 @@ while t <= 0.05:
     t+=0.000025
 
 plt.plot(xx,yy)
+plt.savefig("2a1.pdf", format="pdf")
 plt.show()
 
 t = 0
@@ -179,6 +194,7 @@ while t <= 1:
 
 plt.plot(xx,yy)
 plt.stem(xx,yy)
+plt.savefig("2a2.pdf", format="pdf")
 plt.show()
 
 
@@ -193,6 +209,7 @@ while t <= 0.01:
     t+=0.000025
 
 plt.plot(xx,yy)
+plt.savefig("2b1.pdf", format="pdf")
 plt.show()
 
 
@@ -206,6 +223,7 @@ while t <= 3:
     t+=0.000025
 
 plt.plot(xx,yy)
+plt.savefig("2b2.pdf", format="pdf")
 plt.show()
 
 
@@ -223,6 +241,7 @@ while t <= 0.050025:
     t+=0.000025
 
 plt.plot(xx,yy)
+plt.savefig("2c1.pdf", format="pdf")
 plt.show()
 
 
@@ -235,6 +254,7 @@ while t <= 1:
     t+=0.000025
 
 plt.plot(xx,yy)
+plt.savefig("2c2.pdf", format="pdf")
 plt.show()
 
 
@@ -255,6 +275,7 @@ while t <= 0.05:
     t+=0.000025
 
 plt.plot(xx,yy)
+plt.savefig("2d1.pdf", format="pdf")
 plt.show()
 
 
@@ -267,6 +288,7 @@ while t <= 1:
     t+=0.000025
 
 plt.plot(xx,yy)
+plt.savefig("2d2.pdf", format="pdf")
 plt.show()
 
 
@@ -274,6 +296,7 @@ plt.show()
 
 semnal2D = np.random.rand(128,128)
 plt.imshow(semnal2D)
+plt.savefig("2e.pdf", format="pdf")
 plt.show()
 
 # f
@@ -283,6 +306,7 @@ for x in range(128):
     for y in range(128):
         semnal2[x][y] = x+y
 plt.imshow(semnal2)
+plt.savefig("2f.pdf", format="pdf")
 plt.show()
 
 
