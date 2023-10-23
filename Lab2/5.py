@@ -20,6 +20,7 @@ while t <= 0.2:
     t+=0.000025
 
 plt.plot(xx,yy)
+plt.savefig("Lab2/grafice/5.pdf", format="pdf")
 plt.show()
 
 sounddevice.play(yy, 2400)

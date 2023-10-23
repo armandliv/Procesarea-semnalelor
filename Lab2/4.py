@@ -19,9 +19,22 @@ while t <= 0.02:
     y3 += [sinus(t,240)+sawtooth(t,240)]
     t+=0.000025
 
-plt.plot(xx,y1)
-plt.show()
-plt.plot(xx,y2)
-plt.show()
-plt.plot(xx,y3)
+fig, axs = plt.subplots(3)
+fig.suptitle("Sinus, sawtooth si suma lor") 
+fig.tight_layout(pad=3.2)
+
+for ax in axs.flat:
+    ax.set_xlabel("x")
+    ax.set_ylabel("y")
+
+axs[0].plot(xx,y1)
+axs[0].set_title("Sinus")
+
+axs[1].plot(xx,y2)
+axs[1].set_title("Sawtooth")
+
+axs[2].plot(xx,y3)
+axs[2].set_title("Suma")
+
+plt.savefig("Lab2/grafice/4.pdf", format="pdf")
 plt.show()

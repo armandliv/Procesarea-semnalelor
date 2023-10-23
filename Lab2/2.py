@@ -19,6 +19,7 @@ plot(0, 0.03, 0.00001, sinus, 1, 200, 0)
 plot(0, 0.03, 0.00001, sinus, 1, 200, np.pi/2)
 plot(0, 0.03, 0.00001, sinus, 1, 200, np.pi/3)
 plot(0, 0.03, 0.00001, sinus, 1, 200, np.pi/4)
+plt.savefig("Lab2/grafice/2_4_faze.pdf", format="pdf")
 plt.show()
 
 
@@ -68,6 +69,7 @@ for snr in [0.1,1,10,100]:
     for i in range(3001):
         y += [x1[i]+gamma*z[i]]
     plt.plot(xx,y)
+    plt.savefig(f'Lab2/grafice/2_snr_{snr}.pdf', format="pdf")
     plt.show()
 
 for snr in [0.1,1,10,100]:
@@ -76,5 +78,6 @@ for snr in [0.1,1,10,100]:
     for i in range(3001):
         y += [x1[i]+gamma*z[i]]
     plt.plot(xx,y)
+plt.savefig("Lab2/grafice/2_snrs.pdf", format="pdf")
 plt.show()
 

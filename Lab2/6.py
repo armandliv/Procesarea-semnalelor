@@ -24,9 +24,13 @@ fs = 20
 
 xx = np.linspace(0,1,fs)
 
+k = 0
 def genereaza(frecventa):
     yy = sinus(xx,frecventa)
     plt.plot(xx,yy)
+    global k
+    k += 1
+    plt.savefig(f'Lab2/grafice/6_{k}.pdf', format="pdf")
     plt.show()
 
 #genereaza(fs)

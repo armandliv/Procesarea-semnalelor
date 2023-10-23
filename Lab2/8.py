@@ -17,20 +17,25 @@ y4 = y2 - y0
 
 plt.plot(x,y0)
 plt.title("sin")
+plt.savefig(f'Lab2/grafice/8_sin.pdf', format="pdf")
 plt.show()
 
 plt.plot(x,y1)
 plt.title("y=x")
+plt.savefig(f'Lab2/grafice/8_y=x.pdf', format="pdf")
 plt.show()
 
 plt.plot(x,y2)
 plt.title("Pade")
+plt.savefig(f'Lab2/grafice/8_Pade.pdf', format="pdf")
 plt.show()
 
 plt.plot(x,y3)
 plt.title("y=x fata de sin")
+plt.savefig(f'Lab2/grafice/8_y=x_fata_de_sin.pdf', format="pdf")
 plt.show()
 
 plt.plot(x,y4)
 plt.title("Pade fata de sin")
+plt.savefig(f'Lab2/grafice/8_Pade_fata_de_sin.pdf', format="pdf")
 plt.show()
