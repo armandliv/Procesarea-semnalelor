@@ -1,0 +1,3 @@
+Avand in vedere ca frecventele emise de contrabas se incadreaza in (40 Hz,200 Hz) , atunci frecventa minima ceruta e 400 Hz
+
+Daca se incadra in [40 Hz,200 Hz], atunci ne-ar fi trebuit (400+epsilon) Hz,dar exprimarea cu intre se refera in general la interval deschis.
