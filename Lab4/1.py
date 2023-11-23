@@ -37,7 +37,7 @@ for N in Ns:
     print(end-start)
     if(end==start):
         end+=0.000001
-        print("Inca nu e indeajuns de precis")
+        print("Inca nu e indeajuns de precis") # nu a ajuns
     rapid+=[end-start]
 
 plt.yscale("log")
