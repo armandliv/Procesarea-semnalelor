@@ -16,11 +16,11 @@ while i+2*pas<=100:
     grupuri += [[x[j] for j in range(int(N*i/100),int(N*(i+2*pas)/100))]]
     i+=pas
 
-a = np.zeros((len(grupuri[0])+1,len(grupuri)))
+a = np.zeros((len(grupuri[0])//2+1,len(grupuri)))
 j=0
 for grup in grupuri:
     fft = np.fft.fft(grup)
-    for i in range(len(grup)):
+    for i in range(len(grup)//2):
         a[i][j]=abs(fft[i])
     j+=1
 

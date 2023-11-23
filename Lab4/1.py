@@ -19,6 +19,7 @@ for N in Ns:
     y = sinusoida(x)
 
     start = time.time()
+    start = time.perf_counter()
     F = [[0 for i in range(N)] for j in range(N)]
     for a in range(N):
         for b in range(N):
@@ -28,12 +29,15 @@ for N in Ns:
     print(end-start)
     normal+=[end-start]
 
-    start = time.time()
+    # start = time.time()
+    start = time.perf_counter()
     rez = np.fft.fft(y)
-    end = time.time()
+    # end = time.time()
+    end = time.perf_counter()
     print(end-start)
     if(end==start):
         end+=0.000001
+        print("Inca nu e indeajuns de precis")
     rapid+=[end-start]
 
 plt.yscale("log")
