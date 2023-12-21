@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from statsmodels.tsa.arima.model import ARIMA
 
 # 1
 N = 1000
@@ -100,5 +101,36 @@ plt.savefig("Lab9/grafice/3.pdf", format="pdf")
 plt.savefig("Lab9/grafice/3.png", format="png")
 plt.show()
 
+# 4
+NN = 900
+model = ARIMA(serie[:NN], order=(1,0,1))
+model_fit = model.fit()
+predictions = model_fit.predict()
+eroare = sum([(serie[i]-predictions[i])*(serie[i]-predictions[i]) for i in range(NN)])
+minim = eroare
+p_min = 1
+q_min = 1
+for p in range(1,21):
+    for q in range(1,21):
+        d = 0
+        model = ARIMA(serie[:NN], order=(p,d,q))
+        model_fit = model.fit()
+        predictions = model_fit.predict()
+        eroare = sum([(serie[i]-predictions[i])*(serie[i]-predictions[i]) for i in range(NN)])
+        if eroare < minim:
+            minim = eroare
+            p_min = p
+            q_min = q
 
-
+print(p_min,q_min)
+model = ARIMA(serie, order=(p_min,d,q_min))
+model_fit = model.fit()
+predictions = model_fit.predict()
+plt.plot(serie,color="blue",label="serie")
+plt.plot(predictions[:NN],color="red",label="predictie")
+future_predictions = model_fit.forecast(N-NN)
+plt.plot([i for i in range(NN,N)],future_predictions,color="green",label="predictie viitoare")
+plt.legend()
+plt.savefig("Lab9/grafice/4.pdf", format="pdf")
+plt.savefig("Lab9/grafice/4.png", format="png")
+plt.show()
