@@ -76,5 +76,16 @@ plt.savefig("Lab9/grafice/2_optim.pdf", format="pdf")
 plt.savefig("Lab9/grafice/2_optim.png", format="png")
 plt.show()
 
+# 3
+
+q = 10
+m = 10
+e = np.random.normal(0,1,N+m)
+u = np.mean(serie)
+YY = [e[i-1:i-q-1] for i in range(q,N)]
+th = np.linalg.lstsq(YY,serie-u-e[:N],rcond=-1)[0]
+print(th)
+
+
 
 
