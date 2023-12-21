@@ -82,10 +82,23 @@ q = 10
 m = 10
 e = np.random.normal(0,1,N+m)
 u = np.mean(serie)
-YY = [e[i-1:i-q-1] for i in range(q,N)]
-th = np.linalg.lstsq(YY,serie-u-e[:N],rcond=-1)[0]
+YY = np.zeros((N-q,q))
+for i in range(q,N):
+    for j in range(q):
+        YY[i-q][j] = serie[i-1-j]
+th = np.linalg.lstsq(YY,serie[q:]-u-e[q:N],rcond=-1)[0]
 print(th)
-
+# [ 0.02343778  0.02354881  0.06249258 -0.01704686  0.12866166  0.01004797 0.08628645 -0.05286671  0.01898387  0.01270362]
+yy = serie
+for i in range(N,N+m):
+    yy = np.append(yy,u+e[i])
+    for j in range(q):
+        yy[i] += th[j]*e[i-1-j]
+plt.plot(yy[:N],color="blue",label="serie")
+plt.plot([i for i in range(N,N+m)],yy[N:],color="red",label="predictie")
+plt.savefig("Lab9/grafice/3.pdf", format="pdf")
+plt.savefig("Lab9/grafice/3.png", format="png")
+plt.show()
 
 
 
