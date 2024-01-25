@@ -55,7 +55,10 @@ A[:, 1] = 1
 monthly_average = np.array(monthly_average)
 m, c = np.linalg.lstsq(A, monthly_average, rcond=None)[0]
 linear_trend = m*x+c
-
+plt.plot(linear_trend)
+plt.savefig(f"Lab10/grafice/3_b_trend.pdf", format="pdf")
+plt.savefig(f"Lab10/grafice/3_b_trend.png", format="png")
+plt.show()
 # eliminate trend from monthly_average
 monthly_average_no_trend = monthly_average-linear_trend
 
@@ -65,5 +68,22 @@ plt.savefig(f"Lab10/grafice/3_b_monthly_no_trend.pdf", format="pdf")
 plt.savefig(f"Lab10/grafice/3_b_monthly_no_trend.png", format="png")
 plt.show()
 
+def ornstein_uhlenbeck(x,y,alpha=7):
+    return np.exp(-alpha*np.abs(x-y))
+
+# regression for monthly_average_no_trend
+N = len(monthly_average_no_trend)
+A = np.zeros((N, N))
+for i in range(N):
+    for j in range(N):
+        A[i, j] = ornstein_uhlenbeck(i, j)
+b = monthly_average_no_trend
+a = np.linalg.solve(A, b)
+# plot data and regression
+plt.plot(monthly_average_no_trend[:NN//5*4])
+plt.plot(x[NN//5*4:],a[NN//5*4:])
+plt.savefig(f"Lab10/grafice/3_c_regression.pdf", format="pdf")
+plt.savefig(f"Lab10/grafice/3_c_regression.png", format="png")
+plt.show()
 
 
