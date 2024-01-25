@@ -47,7 +47,7 @@ plt.savefig(f"Lab10/grafice/3_a_monthly.pdf", format="pdf")
 plt.savefig(f"Lab10/grafice/3_a_monthly.png", format="png")
 plt.show()
 
-# find trend (liniar model) for monthly_average with lstsw
+# find trend (liniar model) for monthly_average with lstsq
 x = np.arange(NN)
 A = np.zeros((NN, 2))
 A[:, 0] = x
