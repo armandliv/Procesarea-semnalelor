@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 # read data from file co2_daily_mlo.csv
 file = open('Lab10/co2_daily_mlo.csv', 'r')
 data = []
@@ -18,7 +19,6 @@ for i in range(N):
     day[i] = int(data[i][2])
     decimal[i] = float(data[i][3])
     co2[i] = float(data[i][4])
-
 # plot data
 plt.plot(decimal, co2)
 plt.savefig(f"Lab10/grafice/3_a_daily.pdf", format="pdf")
@@ -28,14 +28,18 @@ plt.show()
 # average for every month over all period
 NN = year[N-1]*12+month[N-1]-year[0]*12-month[0]+1
 NN = int(NN)
-monthly_sum = np.zeros(NN)
+monthly_sum = np.zeros(NN, dtype=float)
 monthly_count = np.zeros(NN)
-monthly_average = np.zeros(NN)
+monthly_average = np.zeros(NN, dtype=float)
 for i in range(N):
     monthly_sum[int((year[i]-year[0])*12+month[i]-month[0])] += co2[i]
     monthly_count[int((year[i]-year[0])*12+month[i]-month[0])] += 1
+    
 for i in range(len(monthly_average)):
-    monthly_average[i] = monthly_sum[i]/monthly_count[i]
+    if monthly_count[i] != 0:
+        monthly_average[i] = float(monthly_sum[i]/monthly_count[i])
+    else:
+        monthly_average[i] = monthly_average[i-1]
 
 # plot data
 plt.plot(monthly_average)
@@ -43,12 +47,23 @@ plt.savefig(f"Lab10/grafice/3_a_monthly.pdf", format="pdf")
 plt.savefig(f"Lab10/grafice/3_a_monthly.png", format="png")
 plt.show()
 
+# find trend (liniar model) for monthly_average with lstsw
+x = np.arange(NN)
+A = np.zeros((NN, 2))
+A[:, 0] = x
+A[:, 1] = 1
+monthly_average = np.array(monthly_average)
+m, c = np.linalg.lstsq(A, monthly_average, rcond=None)[0]
+linear_trend = m*x+c
 
+# eliminate trend from monthly_average
+monthly_average_no_trend = monthly_average-linear_trend
 
-
-
-
-
+# plot data
+plt.plot(monthly_average_no_trend)
+plt.savefig(f"Lab10/grafice/3_b_monthly_no_trend.pdf", format="pdf")
+plt.savefig(f"Lab10/grafice/3_b_monthly_no_trend.png", format="png")
+plt.show()
 
 
 
